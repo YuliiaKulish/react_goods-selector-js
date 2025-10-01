@@ -52,25 +52,30 @@ export const App = () => {
                 className={isSelected ? 'has-background-success-light' : ''}
               >
                 <td>
-                  {isSelected ? (
-                    <button
-                      data-cy="RemoveButton"
-                      type="button"
-                      className="button is-info"
-                      onClick={handleClear}
-                    >
-                      -
-                    </button>
-                  ) : (
-                    <button
-                      data-cy="AddButton"
-                      type="button"
-                      className="button"
-                      onClick={() => handleSelect(good)}
-                    >
-                      +
-                    </button>
-                  )}
+                  <td>
+                    {(selectedGood === '' ||
+                      (selectedGood !== '' && !isSelected)) && (
+                      <button
+                        data-cy="AddButton"
+                        type="button"
+                        className="button"
+                        onClick={() => handleSelect(good)}
+                      >
+                        +
+                      </button>
+                    )}
+
+                    {selectedGood !== '' && isSelected && (
+                      <button
+                        data-cy="RemoveButton"
+                        type="button"
+                        className="button is-info"
+                        onClick={handleClear}
+                      >
+                        -
+                      </button>
+                    )}
+                  </td>
                 </td>
 
                 <td data-cy="GoodTitle" className="is-vcentered">
