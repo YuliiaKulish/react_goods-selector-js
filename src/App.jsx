@@ -16,14 +16,14 @@ export const goods = [
 ];
 
 export const App = () => {
-  const [selectedGood, setSelectedGood] = useState(null);
+  const [selectedGood, setSelectedGood] = useState('Jam');
 
   const handleSelect = good => {
     setSelectedGood(good);
   };
 
   const handleClear = () => {
-    setSelectedGood(null);
+    setSelectedGood('');
   };
 
   return (
